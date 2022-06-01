@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>COVIESAFE | Contact us</title>
+    <meta property="og:site_name" content="coviesafe.com">
+    <link rel="shortcut icon" href="../images/logopic.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 14px;
+            color: #666;
+        }
+
+        input,
+        textarea {
+            outline: none;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: #5a7233;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-weight: 500;
+        }
+
+        form {
+            position: relative;
+            width: 80%;
+            border-radius: 30px;
+            background: #fff;
+        }
+
+        .form-left-decoration,
+        .form-right-decoration {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 20px;
+            border-radius: 20px;
+            background: #5a7233;
+        }
+
+        .form-left-decoration {
+            bottom: 60px;
+            left: -30px;
+        }
+
+        .form-right-decoration {
+            top: 60px;
+            right: -30px;
+        }
+
+        .form-left-decoration:before,
+        .form-left-decoration:after,
+        .form-right-decoration:before,
+        .form-right-decoration:after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 20px;
+            border-radius: 30px;
+            background: #fff;
+        }
+
+        .form-left-decoration:before {
+            top: -20px;
+        }
+
+        .form-left-decoration:after {
+            top: 20px;
+            left: 10px;
+        }
+
+        .form-right-decoration:before {
+            top: -20px;
+            right: 0;
+        }
+
+        .form-right-decoration:after {
+            top: 20px;
+            right: 10px;
+        }
+
+        .circle {
+            position: absolute;
+            bottom: 80px;
+            left: -55px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff;
+        }
+
+        .form-inner {
+            padding: 40px;
+        }
+
+        .form-inner input,
+        .form-inner textarea {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 20px;
+            background: #d0dfe8;
+        }
+
+        .form-inner textarea {
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 20px;
+            border: none;
+            border-bottom: 4px solid #3e4f24;
+            background: #5a7233;
+            font-size: 16px;
+            font-weight: 400;
+            color: #fff;
+        }
+
+        button:hover {
+            background: #3e4f24;
+        }
+
+        @media (min-width: 568px) {
+            form {
+                width: 60%;
+            }
+        }
+        #navbar {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 0px;
+            width: 100%;
+        }
+
+        #logo {
+            margin: 5px 20px;
+
+        }
+
+        #logo img {
+            margin: 4px 4px;
+            height: 59px;
+
+        }
+
+        #navbar {
+            position: fixed;
+            top: 0;
+        }
+
+        #navbar ul {
+            display: flex;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        #navbar::before {
+            content: "";
+            background-color: rgb(16, 87, 74);
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.99;
+        }
+
+        #navbar ul li {
+            list-style-type: none;
+            font-size: 1.5rem;
+            /*position: relative;*/
+        }
+
+        #navbar ul li a {
+            color: rgb(255, 255, 255);
+            display: block;
+            padding: 3px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        #navbar ul li a:hover {
+            color: black;
+            background-color: white;
+        }
+
+        .messages {
+            font-size: medium;
+        }
+
+        #logo img {
+            margin: 4px 4px;
+            height: 59px;
+
+        }
+        .inner-body{
+            float: left;
+            margin: auto;
+            height: 100%;
+            border: 2px black;
+        }
+        .inb1, .inb2 , .inb3{
+                float: left;
+               padding: 10px;
+               margin: 0;
+               border:  10px;
+               color: rgb(6, 28, 192);
+        }
+        h3 {
+            border: 0;
+            margin: 0;
+        }
+        .email {
+            text-align: center;
+            color: rgb(31, 97, 228);
+            margin: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    <nav id="navbar">
+    <div id="logo">
+        <img src="../images/logopic.png" alt="../images/bg2.jpg">
+    </div>
+    <ul>
+        <li class="item"><a href="{% url 'adminIn' %}">Home</a></li>
+        <li class="item"><a href="{% url 'personal' %}">My Profile</a></li>
+        <li class="item"><a href="{% url 'appoint' %}">Appointment</a></li>
+        <li class="item"><a href="{% url 'faq2' %}">FAQ</a></li>
+        
+        <li class="container2"><a href="{%url 'logout' %}">Logout</a></li>
+    </ul>
+</nav>
+
+    <form action="#" class="decor" method="post">
+        {% csrf_token %}
+        <div class="form-left-decoration"></div>
+        <div class="form-right-decoration"></div>
+        <div class="circle"></div>
+        <div class="form-inner">
+            <h2>Helpline : 91-11-23978046</h2>
+            <h2>Technical Helpline :0120-478322</h2>
+            <hr>
+            <div class="inner-body">
+                <div class="inb1">
+                    <h3>CHILD</h3>
+                    <h3>1098</h3>
+                </div>
+
+                <div class="inb2">
+                    <h3>MENTAL HEALTH</h3>
+                    <h3>0804611007</h3>
+                </div>
+                <div class="inb3">
+                    <h3>SENIOR CITIZEN</h3>
+                    <h3>14567</h3>
+                </div>
+
+
+            </div>
+
+            <div class="email"><h2>email : vaccinationms@gmail.com</h2></div>
+            
+        </div>
+    </form>
+</body>
+
+</html>

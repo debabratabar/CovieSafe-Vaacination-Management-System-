@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>COVIESAFE | SLOT BOOKING</title>
+    <meta property="og:site_name" content="coviesafe.com">
+    <link rel="shortcut icon" href="../images/logopic.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(236, 252, 182);
+            place-items: center;
+            align-items: center;
+            height: 1000px;
+            width: 100%;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Add padding to containers */
+        .container {
+            padding-top: 80px;
+            background-color: white;
+            padding-left: 10px;
+            padding-right: 10px;
+            
+        }
+
+        /* Full-width input fields */
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus,
+        input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit button */
+        .registerbtn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+            color: dodgerblue;
+        }
+
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+        #msg {
+            background-color: #046d0edc;
+            color: #ddd;
+            text-align: center;
+        }
+
+        #navbar {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 0px;
+            width: 100%;
+        }
+
+        #logo {
+            margin: 5px 20px;
+
+        }
+
+        #logo img {
+            margin: 4px 4px;
+            height: 59px;
+
+        }
+
+        #navbar {
+            position: fixed;
+            top: 0;
+        }
+
+        #navbar ul {
+            display: flex;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        #navbar::before {
+            content: "";
+            background-color: rgb(16, 87, 74);
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.99;
+        }
+
+        #navbar ul li {
+            list-style-type: none;
+            font-size: 1.5rem;
+            /*position: relative;*/
+        }
+
+        #navbar ul li a {
+            color: rgb(255, 255, 255);
+            display: block;
+            padding: 3px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        #navbar ul li a:hover {
+            color: black;
+            background-color: white;
+        }
+
+        .messages {
+            font-size: medium;
+        }
+
+        #logo img {
+            margin: 4px 4px;
+            height: 59px;
+
+        }
+        #msg {
+      background-color: #450de0;
+      color: #ddd;
+      text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    
+    <nav id="navbar">
+        <div id="logo">
+            <img src="../images/logopic.png" alt="../images/bg2.jpg">
+        </div>
+        <ul>
+            <li class="item"><a href="{% url 'adminIn' %}">Home</a></li>
+            <li class="item"><a href="{% url 'personal' %}">My Profile</a></li>
+            <li class="item"><a href="{% url 'appoint' %}">Appointment</a></li>
+            <li class="item"><a href="{% url 'contactus' %}">Contact Us</a></li>
+            <li class="container2"><a href="{%url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+
+    {% if messages %}
+    <ul  >
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}" {% endif %} id="msg">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form action="{% url 'bookSlot' %}" method="post">
+        {% csrf_token %}
+        <div class="container">
+            <h1>SLOT BOOKING</h1>
+            <p>Please Select the appropriete option.</p>
+            <label for='hospital'><b>Select Hospital : </b></label>
+            <br>
+            {% for i in searchByPinorDistrinct %}
+            <tr>
+                <input type="radio" id="msg" value="{{i.hospital_name}}" name="Hospital" required>
+                <label for="{{i.hospital_name}}"> <b>
+                        <td>{{i.hospital_name}}</td>
+                    </b></label>
+
+                <br>
+            </tr>
+            {% endfor %}
+
+            <br>
+            <br>
+            <label for='Date'><b>Select Date: </b></label>
+            <input type="date" id="start" name="dateV" value="select date" min="2022-01-01" max="2022-12-31">
+            <br><br>
+            <label for='time'><b>Select Time : </b></label> <br>
+
+            <input type='radio' name='timeV' value='10AM - 11AM' required>
+            <label><b>10AM - 11AM</b></label> <br>
+
+            <input type='radio' name='timeV' value='11AM - 12PM' required>
+            <label><b>11AM - 12PM</b></label><br>
+
+            <input type='radio' name='timeV' value='12PM - 1PM' required>
+            <label><b>12PM - 1PM</b></label><br>
+
+            <input type='radio' name='timeV' value='3PM - 4PM' required>
+            <label><b>3PM - 4PM</b></label><br>
+
+            <input type='radio' name='timeV' value='4PM - 5PM' required>
+            <label><b>4PM - 5PM</b></label><br>
+            <br>
+
+            <button type="submit" class="registerbtn">Submit</button>
+        </div>
+    </form>
+
+</body>
+
+</html>

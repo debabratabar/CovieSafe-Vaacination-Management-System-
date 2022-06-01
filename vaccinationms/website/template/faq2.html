@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>COVIESAFE | FAQ PAGE </title>
+    <meta property="og:site_name" content="coviesafe.com">
+    <link rel="shortcut icon" href="../images/logopic.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html,
+        body {
+            overflow: auto;
+            display: grid;
+            background-color: rgb(236, 252, 182);
+            height: 1200px;
+            width: 100%;
+            margin: 0;
+            padding-top: 100px;
+            align-items: left;
+            background-size: 100%;
+        }
+
+
+        .panel-heading [data-toggle="collapse"]:after {
+            font-family: 'Glyphicons Halflings';
+            content: "\e072";
+            /* "play" icon */
+            float: right;
+            color: #F58723;
+            font-size: 18px;
+            line-height: 22px;
+            /* rotate "play" icon from > (right arrow) to down arrow */
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+        }
+
+        .panel-heading [data-toggle="collapse"].collapsed:after {
+            /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            transform: rotate(90deg);
+            color: #454444;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .accordion {
+            background-color: rgb(99, 150, 153);
+            border-radius: .4rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            box-shadow: .5rem 2px .7rem rgb(48, 145, 148);
+        }
+
+        .accordion-link {
+            font-size: 1.6rem;
+            color: rgb(7, 7, 7);
+            text-decoration: none;
+            background-color: rgb(9, 153, 153);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .accordion-link ion-icon {
+            color: rgb(19, 2, 97);
+            padding: .5rem;
+        }
+
+        .accordion-link .remove {
+            display: none;
+        }
+
+        .answer {
+            max-height: 0;
+            overflow: hidden;
+            position: relative;
+            background-color: rgb(159, 159, 225);
+            transition: max-height 650ms;
+            /* transition: width 2s, height 4s; */
+        }
+
+        .answer::before {
+            content: "";
+            position: absolute;
+            width: .6rem;
+            height: 90%;
+            background-color: rgb(176, 141, 169);
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .answer p {
+            font-size: 1.4rem;
+            color: rgb(5, 2, 8);
+            padding: 2rem;
+        }
+
+        .accordion-item:target .answer {
+            max-height: 20rem;
+        }
+
+        .accordion-item:target .accordion-link .add {
+            display: none;
+        }
+
+        .accordion-item:target .accordion-link .remove {
+            display: block;
+        }
+
+
+        #logo {
+            margin: 5px 20px;
+
+        }
+
+        #logo img {
+            margin: 4px 4px;
+            height: 59px;
+
+        }
+
+        #navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        #navbar ul {
+            display: flex;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        #navbar::before {
+            content: "";
+            background-color: rgb(16, 87, 74);
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.99;
+        }
+
+        #navbar ul li {
+            list-style-type: none;
+            font-size: 1.5rem;
+            /*position: relative;*/
+        }
+
+        #navbar ul li a {
+            color: rgb(255, 255, 255);
+            display: block;
+            padding: 3px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+        .item ,.container2{
+            padding-top: 20px;
+        }
+
+        #navbar ul li a:hover {
+            color: black;
+            background-color: white;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        
+        <ul>
+            <!-- li.item{<a></a>}*6 -->
+
+            <li  id="logo"><img src="../images/logopic.png" alt="../images/bg2.jpg"></li>
+            <li class="item"><a href="{% url 'adminIn' %}">Home</a></li>
+            <li class="item"><a href="{% url 'personal' %}">My Profile</a></li>
+            <li class="item"><a href="{% url 'appoint' %}">Appointment</a></li>
+            <li class="item"><a href="{% url 'contactus' %}">Contact Us</a></li>
+            <li class="container2"><a href="{%url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <div class="page-header">
+            <h1>Coviesafe FAQ <small> (Frequently Asked Questions)</small></h1>
+        </div>
+
+        <section id="faq">
+            <div class="container">
+                <div class="accordion">
+                    <div class="accordion-item" id="question1">
+                        <a href="#question1" class="accordion-link">
+                            1. Is there any registration charge to be paid?
+                            <ion-icon name="caret-down-outline" class="add"></ion-icon>
+                            <ion-icon name="caret-up-outline" class="remove"></ion-icon>
+                        </a>
+                        <div class="answer">
+                            <p> No, there is no registration charge.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item" id="question2">
+                        <a href="#question2" class="accordion-link">
+                            2.Is it necessary to register again for 2nd dose or Precaution
+                            dose?
+                            <ion-icon name="caret-down-outline" class="add"></ion-icon>
+                            <ion-icon name="caret-up-outline" class="remove"></ion-icon>
+                        </a>
+                        <div class="answer">
+                            <p class="panel-body">
+                                No, registration is required only once to create a beneficiary account on Vaccination
+                                Management System.
+                                <br> Thereafter, appointments can be booked, both online or onsite, and vaccination can
+                                be
+                                availed from the
+                                same account.
+                                <br>It is recommended that a beneficiary should register only once so that proper
+                                records
+                                are maintained.
+                                <br>It is also recommended that the registration should be done through an active mobile
+                                number to avoid
+                                problems in future.
+                        </div>
+                    </div>
+                    <div class="accordion-item" id="question3">
+                        <a href="#question3" class="accordion-link">
+                            3. Which age groups can register for vaccination on the
+                            Vaccination Management portal?
+                            <ion-icon name="caret-down-outline" class="add"></ion-icon>
+                            <ion-icon name="caret-up-outline" class="remove"></ion-icon>
+                        </a>
+                        <div class="answer">
+                            <p> All beneficiaries who have completed 12 years of age and above on the day of
+                                registration
+                                <br>
+                                (birth year 2010 or earlier) can register for vaccination.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="accordion-item" id="question4">
+                        <a href="#question4" class="accordion-link">
+                            4.How can I find the nearest vaccination center?
+                            <ion-icon name="caret-down-outline" class="add"></ion-icon>
+                            <ion-icon name="caret-up-outline" class="remove"></ion-icon>
+                        </a>
+                        <div class="answer">
+                            <p> You can search in Vaccination Management portal for the vaccination center nearest to
+                                your
+                                location by PIN code or district,<br>
+                                on the home page of Vaccination Management portal.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item" id="question5">
+                        <a href="#question5" class="accordion-link">
+                            5.What information is available regarding the vaccination
+                            schedules on Vaccination Management System?
+                            <ion-icon name="caret-down-outline" class="add"></ion-icon>
+                            <ion-icon name="caret-up-outline" class="remove"></ion-icon>
+                        </a>
+                        <div class="answer">
+                            <p> When you search for vaccination centers, the list of centers and the sessions published
+                                for
+                                each of the vaccination center on various dates,<br>
+                                is displayed on screen. The number of vaccination slots available in the session are
+                                also
+                                displayed on
+                                screen.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item" id="question5">
+                        <a href="#question5" class="accordion-link">
+                            6.Can I get vaccination without appointment?
+                            <ion-icon name="caret-down-outline" class="add"></ion-icon>
+                            <ion-icon name="caret-up-outline" class="remove"></ion-icon>
+                        </a>
+                        <div class="answer">
+                            <p Appointments for vaccination can be taken either in online or onsite mode. Vaccination is
+                                recorded only after appointment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+    </div>
+
+</body>
+
+</html>

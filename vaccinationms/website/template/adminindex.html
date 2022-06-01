@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COVIESAFE | HOMEPAGE</title>
+  <meta property="og:site_name" content="coviesafe.com">
+  <link rel="shortcut icon" href="../images/logopic.png">
+</head>
+<style>
+  
+  body {
+    font-family: "Lato", sans-serif;
+    background-size: cover;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-size: 100%;
+    place-items: center;
+    background-color: rgb(236, 252, 182);
+    margin: 0;
+  }
+
+  .topnav {
+    overflow: hidden;
+    background-color: #A9CCE3;
+  }
+
+  .topnav a,
+  label {
+    float: right;
+    color: black;
+    text-align: right;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+
+  }
+
+  .topnav a:hover {
+    background-color: #1A5276;
+    color: #A9CCE3;
+  }
+
+  .topnav a.active {
+    background-color: #A9CCE3;
+    color: white;
+  }
+
+  .bg {
+    opacity: 0.9;
+    background: url("../images/admin.jpg");
+    width: 100%;
+    height: 70%;
+    margin: 0;
+    padding: 30px;
+    margin-top:100px ;
+    background-repeat:no-repeat;
+  }
+
+  .btn {
+    color: white;
+    background: #d9c552;
+    padding: 35px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 23px;
+    border-radius: 20px;
+    width: 15%;
+    height: 150px;
+    margin: 10px;
+    display: inline-block;
+    box-shadow: 6px 6px #A9CCE3;
+  }
+
+  .container1 {
+    float: left;
+    width: 50%;
+  }
+  #logo {
+            margin: 5px ;
+
+        }
+
+        #logo img {
+            margin: 4px 4px;
+            height: 59px;
+
+        }
+  #navbar {
+            position: sticky;
+            top: 0;
+            margin: auto;
+            width: 100%;
+        }
+
+        #navbar ul {
+            display: flex;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        #navbar::before {
+            content: "";
+            background-color: rgb(16, 87, 74);
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.99;
+        }
+
+        #navbar ul li {
+            list-style-type: none;
+            font-size: 1.5rem;
+        }
+
+        #navbar ul li a {
+            color: rgb(255, 255, 255);
+            display: block;
+            padding: 3px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        #navbar ul li a:hover {
+            color: black;
+            background-color: white;
+        }
+
+        .messages {
+            font-size: medium;
+        }
+
+        #navbar {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 0px;
+            width: 100%;
+        }
+        .check{
+          padding-left: 10px;
+        }
+        .item , .container2{
+          padding-top:25px;
+        }
+        
+</style>
+
+<body>
+    {% csrf_token %}
+
+   
+  
+  <nav id="navbar" method="post">
+    <ul class="messages">
+      <li id="logo" ><img src="../images/logopic.png" alt="../images/bg2.jpg"></li>
+      {% if message %}
+        <li class="check">Welcome {{ message }} !! </li>
+      {% endif %}
+      <li class="item"><a href="{% url 'adminIn' %}">Home</a></li>
+      <li class="item"><a href="{% url 'faq2' %}">FAQS</a></li>
+      <li class="item"><a href="{% url 'contactus' %}">Contact Us</a></li>
+      <li class="container2"><a href="{%url 'logout' %}">Logout</a></li>
+    </ul>
+  </nav>
+
+
+  <div class="bg">
+    <center>
+      <div class="btn"><a href="{% url 'personal' %}"><img src="../images/viewchild.png" name="profile" /><br>My Profile</div></a>
+      <div class="btn"><a href="{% url 'Vaccine' %}"><img src="../images/addvaccine.png" /><br>Book your slot </a></div>
+      <br>
+      <div class="btn"><a href="{% url 'appoint' %}"><img src="../images/report.png" /><br>My Appointment</a></div>
+    </center>
+  </div>
+
+</body>
+
+</html>

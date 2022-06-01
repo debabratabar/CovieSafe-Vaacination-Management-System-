@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Django CRUD Operations</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+</head>
+<body>
+<div class="container">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>First Name</th>
+		<th>Last Name</th>
+		<th>sex</th>
+		<th>EMail</th>
+		<th>Aadhar No.</th>
+      </tr>
+    </thead>
+    <tbody>
+	{% for i in Users %}  
+      <tr>
+        <td>{{i.first_name}}</td>
+        <td>{{i.last_name}}</td>
+		<td>{{i.sex}}</td>
+		<td>{{i.email}}</td>
+		<td>{{i.aadhar}}</td>
+      </tr>
+	  {% endfor %} 
+	</tbody>
+</table>	
+</div>
+</body>
+</html>

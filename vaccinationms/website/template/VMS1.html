@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVIESAFE | HOMEPAGE</title>
+    <meta property="og:site_name" content="coviesafe.com">
+    <link rel="shortcut icon" href="../images/logopic.png">
+    <style>
+        /* css reset */
+*{
+    margin: 0;
+    padding: 0;
+}
+/* css variables */
+:root{
+    --navbar-height: 59px;
+}
+/* -------------------------------Navigation bar -----------------------------------------*/
+body{
+    background-color: rgb(236, 252, 182);
+}
+#navbar{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+#logo{
+    margin: 5px 20px;
+    
+}
+#logo img{
+    margin: 4px 4px;
+    height: 59px;
+
+}
+#navbar{
+    position: sticky;
+    top: 0;
+}   
+#navbar ul{
+    display: flex;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+#navbar::before{
+    content: "";
+    background-color: rgb(16, 87, 74);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.99;
+}
+#navbar ul li{
+    list-style-type: none;;
+    font-size: 1.5rem;
+    /*position: relative;*/
+}
+#navbar ul li a{
+    color: rgb(255, 255, 255);
+   display: block;
+   padding: 3px 22px;
+   border-radius: 20px;
+   text-decoration: none;
+}
+#navbar ul li a:hover{
+    color: black;
+    background-color: white;
+}
+
+/* --------------------------------------home section ---------------------------------------------*/
+#home{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 100px;
+    height: 620px;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+    
+}
+#home::before{
+    content: "";
+    background: url("../images/bg5.jpg") no-repeat center center/cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.89;
+}
+#home h1{
+    color: rgb(164, 6, 6);
+    text-align: center;
+    font-size: 3.5 rem;
+    font-family: 'Baloo Bhaijaan 2', cursive;
+}
+#home p{
+    color: black;
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: 'Baloo Bhaijaan 2', cursive;
+}
+.btn{
+    padding: 6px 20px;
+    border: 4px solid blue;
+    background-color: rgb(11, 129, 129);
+    color: red;
+    margin: 17px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+/* --------------------------important information(steps) section----------------------------------------- */
+#info{
+    margin: 0px;
+    display: flex;
+}
+#info .box{
+    border: 2px solid red;
+    padding: 30px;
+    margin: 2px 10px;
+    border-radius: 28px;
+    background-color: rgb(199, 235, 235);
+}
+#info .box img{
+   height: 150px;
+   margin: auto;
+   display: block;
+}
+/* utility classes */
+#home .h-primary{
+    font-size: 3.4rem; 
+    color: rgba(3, 30, 103, 0.897); 
+    padding: 9px;
+}
+.h-primarys{
+    font-size: 2.5rem;
+    padding: 60px;
+    font-family: 'Lato', sans-serif;
+}
+.h-secondary{
+    font-size: 1.5rem;
+    padding: 8px;
+}
+.center{
+    text-align: center;
+}
+/*------------------------------------------------ FAQs section ------------------------------------------------*/
+.container{
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+.accordion{
+    background-color: rgb(99, 150, 153);
+    border-radius: .4rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: .5rem 2px .7rem rgb(48, 145, 148);
+}
+.accordion-link{
+    font-size: 1.6rem;
+    color: rgb(7, 7, 7);
+    text-decoration: none;
+    background-color: rgb(9, 153, 153);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+.accordion-link ion-icon{
+    color: rgb(19, 2, 97);
+    padding: .5rem;
+}
+.accordion-link .remove{
+    display: none;
+}
+.answer{
+    max-height: 0;
+    overflow: hidden;
+    position: relative;
+    background-color: rgb(159, 159, 225);
+    transition: max-height 650ms; 
+    /* transition: width 2s, height 4s; */
+}
+.answer::before{
+    content: "";
+    position: absolute;
+    width: .6rem;
+    height: 90%;
+    background-color: rgb(176, 141, 169);
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+.answer p{
+    font-size: 1.4rem;
+    color: rgb(5, 2, 8);
+    padding: 2rem;   
+}
+.accordion-item:target .answer{
+    max-height: 20rem;
+}
+.accordion-item:target .accordion-link .add{
+    display: none;
+}
+.accordion-item:target .accordion-link .remove{
+    display: block;
+}
+.container2{
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    color :aqua;
+    text-align: center;
+}
+
+    </style>
+    <!-- icons for FAQs -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- Using google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&family=Roboto+Condensed&family=Roboto+Slab&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&family=Lato:wght@100;300&family=Roboto+Condensed&family=Roboto+Slab&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+   
+    <nav id="navbar">
+        <div id="logo">
+            <img src="../images/logopic.png" alt="../images/bg2.jpg">
+        </div>
+        <ul>
+            <!-- li.item{<a></a>}*6 -->
+            <li class="item"><a href="{% url 'homepage' %}">Home</a></li>
+            <li class="item"><a href="{% url 'login' %}">Log In</a></li>
+            <li class="item"><a href="{% url 'register' %}">Register</a></li>
+            <li class="item"><a href="{% url 'faq' %}">FAQS</a></li>
+            <li class="item"><a href="{% url 'homepage' %}">About Us</a></li>
+        </ul>
+    </nav>
+    <section  id="home">
+       <b> <h1 class="h-primary">Welcome to Covid-19 Vaccine Management System</h1></b>
+       <b> <p>"Nobody is going to say 'get infected so you can get protection,' because that could be the infection that
+            kills you."</p> </b>
+     <b>   <p>"Although our main concern is to treat people with substance use disorder and mental health issues and to
+            ultimately prepare them for reintegration into society, vaccination is crucial in terms of ensuring overall
+            health and well-being."</p> </b>
+        <button class="btn"><a href="{%url 'register' %}">Book your slot now!</a></button>
+    </section>
+    <section id="steps">
+        <h1 class="h-primarys center"><b>How this program works</b></h1>
+        <div id="info">
+            <div class="box">
+                <img src="../images/box1.jpg">
+                <h2 class="h-secondary center">Register</h2>
+                <p>The first step is to register for this program,which lets you schedule your vaccination</p>
+
+            </div>
+            <div class="box">
+                <img src="../images/box2.jpg">
+                <h2 class="h-secondary center">Give personal details</h2>
+                <p>Your age and other factors can effect the timing of your vaccination</p>
+
+            </div>
+            <div class="box">
+                <img src="../images/box3.jpg">
+                <h2 class="h-secondary center">Schedule your vaccination</h2>
+                <p>We will look for openings and book two apointments on your behalf</p>
+
+            </div>
+            <div class="box">
+                <img src="../images/box4.jpg">
+                <h2 class="h-secondary center">Update your profile</h2>
+                <p>After vaccinated don't forget to update your profile so that we get the records</p>
+
+            </div>
+        </div>
+    </section>
+    <section id="faq">
+        <h1 class="h-primarys center">Frequently Asked Questions</h1>
+        <div class="container">
+            <div class="accordion">
+                <div class="accordion-item" id="question1">
+                    <a href="#question1" class="accordion-link">
+                        1. Why should i get vaccinated if i might get COVID-19 anyways?
+                        <ion-icon name="caret-down-outline" class="add"></ion-icon>
+                        <ion-icon name="caret-up-outline" class="remove"></ion-icon>
+                    </a>
+                    <div class="answer">
+                        <p>vaccination significantly lowers your risk of severe illness, hospitalization, and
+                            death if you get infected. Compared to people who are up to date with their COVID-19
+                            vaccinations, unvaccinated people are more likely to get COVID-19, much more likely to be
+                            hospitalized with COVID-19, and much more likely to die from COVID-19.</p>
+                    </div>
+                </div>
+                <div class="accordion-item" id="question2">
+                    <a href="#question2" class="accordion-link">
+                        2. Do i need to wait after getting a flu vaccine or another vaccine before getting a COVID-19
+                        vaccine?
+                        <ion-icon name="caret-down-outline" class="add"></ion-icon>
+                        <ion-icon name="caret-up-outline" class="remove"></ion-icon>
+                    </a>
+                    <div class="answer">
+                        <p>There is no recommended waiting period between getting a COVID-19 vaccine and other vaccines.
+                            You can get a COVID-19 vaccine and other vaccines, including a flu vaccine, at the same
+                            visit.
+                            Experience with other vaccines has shown that the way our bodies develop protection, known
+                            as an
+                            immune response, and possible side effects after getting vaccinated are generally the same
+                            when
+                            given alone or with other vaccines.</p>
+                    </div>
+                </div>
+                <div class="accordion-item" id="question3">
+                    <a href="#question3" class="accordion-link">
+                        3. If i already had COVID-19 and recovered, do i still need to get a COVID-19 vaccine?
+                        <ion-icon name="caret-down-outline" class="add"></ion-icon>
+                        <ion-icon name="caret-up-outline" class="remove"></ion-icon>
+                    </a>
+                    <div class="answer">
+                        <p>You should get a COVID-19 vaccine even if you already had COVID-19.
+
+                            Getting a COVID-19 vaccine after you recover from COVID-19 infection provides added
+                            protection
+                            against COVID-19. People who already had COVID-19 and do not get vaccinated after their
+                            recovery
+                            are more likely to get COVID-19 again than those who get vaccinated after their recovery.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item" id="question4">
+                    <a href="#question4" class="accordion-link">
+                        4. Can i get vaccinated against COVID-19 while i am currently sick with COVID-19?
+                        <ion-icon name="caret-down-outline" class="add"></ion-icon>
+                        <ion-icon name="caret-up-outline" class="remove"></ion-icon>
+                    </a>
+                    <div class="answer">
+                        <p>No People with COVID-19 should wait to be vaccinated until after they complete their
+                            isolation
+                            period. People who have symptoms will end isolation at a different time than people who do
+                            not
+                            have symptoms. This also applies to people who have been vaccinated but get COVID-19 before
+                            getting any additional or booster doses.</p>
+                    </div>
+                </div>
+                <div class="accordion-item" id="question5">
+                    <a href="#question5" class="accordion-link">
+                        5. What are the ingridients in COVID-19 vaccines?
+                        <ion-icon name="caret-down-outline" class="add"></ion-icon>
+                        <ion-icon name="caret-up-outline" class="remove"></ion-icon>
+                    </a>
+                    <div class="answer">
+                        <p>Vaccine ingredients vary by manufacturer. None of the vaccines contain eggs, gelatin, latex,
+                            or
+                            preservatives. All COVID-19 vaccines are free from metals, such as iron, nickel, cobalt,
+                            lithium, and rare earth alloys. They are also free from manufactured products such as
+                            microelectronics, electrodes, carbon nanotubes, and nanowire semiconductors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+
+</html>

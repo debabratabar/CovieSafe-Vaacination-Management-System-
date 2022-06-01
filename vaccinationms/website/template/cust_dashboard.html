@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVIESAFE | PERSONAL DETAILS</title>
+      
+    <link rel="stylesheet" href="../static/css/style.css">
+    <meta property="og:site_name" content="coviesafe.com">
+    <link rel="shortcut icon" href="../images/logopic.png">
+    <style>
+        body {
+            background-color: rgb(236, 252, 182);
+            place-items: center;
+            align-items: center;
+            height: 1000px;
+            width: 100%;
+            margin: 0;
+
+        }
+        .card-header{
+            background-color: rgb(244, 217, 10);
+        }
+        .card-body{
+            background-color: rgb(230, 119, 9);
+        }
+        #navbar {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 0px;
+      width: 100%;
+    }
+    .container{
+        padding-top: 80px;
+    }
+
+    #logo {
+      margin: 5px 20px;
+
+    }
+
+    #logo img {
+      margin: 4px 4px;
+      height: 59px;
+
+    }
+
+    #navbar {
+      position: fixed;
+      top: 0;
+    }
+
+    #navbar ul {
+      display: flex;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+
+    #navbar::before {
+      content: "";
+      background-color: rgb(16, 87, 74);
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      opacity: 0.99;
+    }
+
+    #navbar ul li {
+      list-style-type: none;
+      font-size: 1.5rem;
+      /*position: relative;*/
+    }
+
+    #navbar ul li a {
+      color: rgb(255, 255, 255);
+      display: block;
+      padding: 3px 22px;
+      border-radius: 20px;
+      text-decoration: none;
+    }
+
+    #navbar ul li a:hover {
+      color: black;
+      background-color: white;
+    }
+
+    #msg {
+      background-color: #e0330d;
+      color: #ddd;
+      text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div id="logo">
+          <img src="../images/logopic.png" alt="../images/bg2.jpg">
+        </div>
+        <ul>
+          <!-- li.item{<a></a>}*6 -->
+          <li class="item"><a href="{% url 'adminIn' %}">Home</a></li>
+          <li class="item"><a href="{% url 'Vaccine' %}">Book your Slot</a></li>
+          <li class="item"><a href="{% url 'appoint' %}">Appointment</a></li>
+          <li class="item"><a href="{% url 'contactus' %}">Contact Us</a></li>
+          <li class="container2"><a href="{%url 'logout' %}">Logout</a></li>
+        </ul>
+      </nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto py-4">
+            <div class="card">
+                <div class="card-header">
+                    <h1>My Details</h1>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <tbody>
+                            {% for i in Users %}
+                            <tr>
+                                <th>First Name</th>
+                                <td>{{i.first_name}}</td>
+                            </tr>
+                            <tr>
+                                <th>Last Name</th>
+                                <td>{{i.last_name}}</td>
+                            </tr>
+                            <tr>
+                                <th>Gender</th>
+                                <td>{{i.sex}}</td>
+                            </tr>
+                            <tr>
+                                <th>Email_id</th>
+                                <td>{{i.email}}</td>
+                            </tr>
+                            <tr>
+                                <th>Aadhar Number</th>
+                                <td>{{i.aadhar}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+</body>
